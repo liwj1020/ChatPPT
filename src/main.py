@@ -22,7 +22,7 @@ def main():
     ![未来增长](images/forecast.png)
     """
 
-    template_file = 'templates/MasterTemplate.pptx'
+    template_file = 'templates/LGBTQIA Pride Month presentation.pptx'
     prs = load_template(template_file)
 
     print("Available Slide Layouts:")
