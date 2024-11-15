@@ -21,5 +21,5 @@ ENV OPENAI_API_KEY=${OPENAI_API_KEY}
 # 在构建过程中运行单元测试
 RUN ./validate_tests.sh
 
-# 设置容器的入口点，默认运行 ChatPPT Gradio Server
-CMD ["python", "src/gradio_server.py"]
+# 设置容器的入口点，改为运行 Streamlit 服务
+CMD ["streamlit", "run", "src/streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
