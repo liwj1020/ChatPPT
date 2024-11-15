@@ -50,7 +50,7 @@ class ChatBot(ABC):
         self.chatbot_with_history = RunnableWithMessageHistory(self.chatbot, get_session_history)
 
 
-    def chat_with_history(self, user_input, session_id=None):
+    def chat_with_history1(self, user_input, session_id=None):
         """
         处理用户输入，生成包含聊天历史的回复。
 
@@ -71,3 +71,4 @@ class ChatBot(ABC):
 
         LOG.debug(f"[ChatBot] {response.content}")  # 记录调试日志
         return response.content  # 返回生成的回复内容
+

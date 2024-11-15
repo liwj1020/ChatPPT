@@ -22,3 +22,6 @@ class Config:
             
             # 加载布局映射
             self.layout_mapping = config.get('layout_mapping', {})
+            
+            # 加载 chatbot prompt
+            self.chatbot_prompt = config.get('chatbot_prompt', "You are a helpful assistant.")

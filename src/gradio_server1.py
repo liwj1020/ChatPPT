@@ -9,16 +9,15 @@ from logger import LOG
 
 # 初始化配置和必要组件
 config = Config()
-chatbot_service = ChatBot(config.chatbot_prompt)
+chatbot = ChatBot(config.chatbot_prompt)
 ppt_template = load_template(config.ppt_template)
 layout_manager = LayoutManager(get_layout_mapping(ppt_template))
 
 def generate_contents(message, history):
     """处理用户输入并生成PPT内容格式"""
     # 调用ChatBot生成标准格式的PPT内容
-    slides_content = chatbot_service.chat_with_history1(message)
-    history.append([message, slides_content])
-    return history
+    slides_content = chatbot.chat_with_history(message)
+    return slides_content
 
 def handle_generate(history):
     """处理生成PPT按钮点击事件"""
@@ -31,7 +30,7 @@ def handle_generate(history):
     # 解析内容并生成PowerPoint数据结构
     powerpoint_data, presentation_title = parse_input_text(slides_content, layout_manager)
     
-    # 定义���出PowerPoint文件路径
+    # 定义输出PowerPoint文件路径
     output_pptx = f"outputs/{presentation_title}.pptx"
     
     # 生成PowerPoint文件
