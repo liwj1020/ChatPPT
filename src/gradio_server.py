@@ -126,8 +126,8 @@ with gr.Blocks(
 # 主程序入口
 if __name__ == "__main__":
     # 启动Gradio应用，允许队列功能，并通过 HTTPS 访问
-    demo.queue().launch(
-        share=False,
-        server_name="0.0.0.0",
-        # auth=("django", "1234") # ⚠️注意：记住修改密码
+    demo.launch(
+        server_name="0.0.0.0",  # 允许外部访问
+        server_port=7860,
+        ssl_verify=False  # 因为 SSL 终止在 Nginx，所以这里不需要 SSL
     )
